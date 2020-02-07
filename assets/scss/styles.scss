@@ -1,15 +1,5 @@
-/*! 
- * Template Name: Pillar - Bootstrap 4 Resume/CV Template for Developers
- * Version: 1.0.1
- * Author: Xiaoying Riley
- * Copyright: 3rd Wave Media
- * Twitter: @3rdwave_themes
- * License: Creative Commons Attribution 3.0 License
- * Website: http://themes.3rdwavemedia.com/
-*/
-
 // Define theme colour scheme
-$theme-color-primary: #3582C4;
+$theme-color-primary: #56a0c4;
 $theme-text-color-primary: #434E5E;
 $theme-text-color-secondary: lighten($theme-text-color-primary, 10%);
 $theme-text-color-light: lighten($theme-text-color-primary, 40%);
@@ -18,17 +8,21 @@ $theme-divider-color: lighten($theme-text-color-primary, 10%);
 $theme-bg-light: #F7F8FA;
 $theme-bg-dark: $theme-text-color-primary;
 
+$gradient-color-sky: #23D0C4;
+$gradient-color-sea: #66E3AB;
+$gradient-color-grass: #9edb77;
+$gradient-color-rye: #f99c31;
+
+
 // Create variables to override the default value for variables used in the Bootstrap SCSS files.
 $theme-colors: (
   "primary":  $theme-color-primary, 
   "secondary":  $theme-text-color-secondary, 
 );
 
-//Import Bootstrap
 @import "bootstrap/scss/bootstrap.scss";
 
 
-/*************************** Pillar Styles ****************************/
 body {
     font-family: 'Roboto', sans-serif;  
     background: $theme-bg-light;
@@ -36,6 +30,13 @@ body {
     -moz-osx-font-smoothing: grayscale;
     color: $theme-text-color-primary;
     
+}
+.mb-5 {
+	margin-bottom: 2rem !important;
+}
+
+.pb-5 {
+	padding-bottom: 1rem !important;
 }
 
 .theme-bg-primary {
@@ -54,16 +55,15 @@ a.theme-btn-on-bg, .theme-btn-on-bg {
 		background: rgba(0, 0, 0, 0.4);
 		border-color: transparent;border: none;
 	}
-	
+}
+
+.linked-in-button {
+	vertical-align: top !important;
+	font-size: 1.1rem !important;
 }
 
 .progress {
 	@include border-radius(2px);
-}
-
-.theme-progress-bar-dark {
-	background-color: $theme-color-primary;
-	
 }
 
 .resume-wrapper {
@@ -73,15 +73,15 @@ a.theme-btn-on-bg, .theme-btn-on-bg {
 }
 
 .resume-wrapper-inner {
-	max-width: 1000px;
+	max-width: 1000px; // SET 1240 For PDF
 }
 
 .resume-header {
 	background: $theme-color-primary;
 	color: rgba(256, 256, 256, 0.9);
-	height: 220px;
+	height: 170px;
 	.picture {
-		width: 220px;
+		width: 170px;
 	}
 		
 	.name {
@@ -244,20 +244,22 @@ a.theme-btn-on-bg, .theme-btn-on-bg {
 	}
 }
 
-// Small devices (landscape phones, less than 768px)
-@media (max-width: 767.98px) {
-    .resume-wrapper {
-	    padding-top: 0;
-    }
-	
-	.resume-header {
-		height: auto;
-	}
-	.resume-header .picture {
-		width: 120px;
-		@include border-radius(4px);
-	}
-
-	
+.backend-color {
+	background-color: $gradient-color-sky;
 }
+.frontend-color {
+	background-color: $gradient-color-grass;
+}
+.devops-color {
+	background-color: $gradient-color-rye;
+}
+.other-tech-color {
+	background-color: $gradient-color-sea;
+}
+.other-tech-badge {
+	background-color: #66b5e326;
+}
+
+
+
 
