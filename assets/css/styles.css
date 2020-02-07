@@ -8828,4 +8828,14 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   background-color: #66b5e326;
 }
 
+.download-pdf-icon {
+  width: 100%;
+}
+.download-pdf-icon .pdf-link {
+  float: right;
+}
+.download-pdf-icon .pdf-link img {
+  width: 100px;
+}
+
 /*# sourceMappingURL=styles.css.map */
