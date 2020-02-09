@@ -8604,6 +8604,7 @@ h3 {
   }
 }
 body {
+  font-size: 1.35rem;
   font-family: "Roboto", sans-serif;
   background: #F7F8FA;
   -webkit-font-smoothing: antialiased;
@@ -8640,7 +8641,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 
 .linked-in-button {
   vertical-align: top !important;
-  font-size: 1.1rem !important;
+  font-size: 1.4rem !important;
 }
 
 .progress {
@@ -8648,29 +8649,28 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .resume-wrapper {
-  padding-top: 30px;
   padding-bottom: 60px;
 }
 
 .resume-wrapper-inner {
-  max-width: 1000px;
+  max-width: 1380px;
 }
 
 .resume-header {
   background: #56a0c4;
   color: rgba(255, 255, 255, 0.9);
-  height: 170px;
+  height: 190px;
 }
 .resume-header .picture {
-  width: 170px;
+  width: 190px;
 }
 .resume-header .name {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   letter-spacing: 0.175rem;
   font-weight: 900;
 }
 .resume-header .title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 .resume-header a {
   color: rgba(255, 255, 255, 0.6);
@@ -8680,20 +8680,20 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .resume-social {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 .resume-social .fa-container {
-  font-size: 1rem;
+  font-size: 1.5rem;
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 35px;
+  height: 35px;
   border-radius: 0.125rem;
   background: white;
   color: #56a0c4;
 }
 
 .resume-section-title {
-  font-size: 1.25rem;
+  font-size: 1.55rem;
   position: relative;
   color: #56a0c4;
 }
@@ -8744,31 +8744,31 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 
 .resume-company-name {
   color: #58677c;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
 .resume-position-time {
-  font-size: 0.875rem;
-  color: #aab4c3;
+  font-size: 1rem;
+  color: #434E5E;
 }
 
 .resume-position-title {
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   color: #434E5E;
 }
 
 .resume-timeline-item-desc-heading {
-  font-size: 1rem;
+  font-size: 1.4rem;
 }
 
 .resume-skills-cat {
-  font-size: 1rem;
+  font-size: 1.4rem;
   color: #434E5E;
 }
 
 .resume-skill-name {
-  font-size: 0.8125rem;
+  font-size: 1.25rem;
   color: #434E5E;
 }
 
@@ -8777,12 +8777,12 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .resume-degree-org {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .resume-degree-time {
   color: #aab4c3;
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .resume-award-icon {
@@ -8797,7 +8797,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .resume-award-desc {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .resume-lang-name {
@@ -8809,19 +8809,19 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .backend-color {
-  background-color: #23D0C4;
+  background-color: #0d4d49;
 }
 
 .frontend-color {
-  background-color: #9edb77;
+  background-color: #519227;
 }
 
 .devops-color {
-  background-color: #f99c31;
+  background-color: #8d4d04;
 }
 
 .other-tech-color {
-  background-color: #66E3AB;
+  background-color: #1b955e;
 }
 
 .other-tech-badge {

@@ -24,6 +24,7 @@ $theme-colors: (
 
 
 body {
+	font-size: 1.35rem;
     font-family: 'Roboto', sans-serif;  
     background: $theme-bg-light;
     -webkit-font-smoothing: antialiased;
@@ -59,7 +60,7 @@ a.theme-btn-on-bg, .theme-btn-on-bg {
 
 .linked-in-button {
 	vertical-align: top !important;
-	font-size: 1.1rem !important;
+	font-size: 1.4rem !important;
 }
 
 .progress {
@@ -67,30 +68,30 @@ a.theme-btn-on-bg, .theme-btn-on-bg {
 }
 
 .resume-wrapper {
-    padding-top: 30px;
+    //padding-top: 30px;
     padding-bottom: 60px;
 	
 }
 
 .resume-wrapper-inner {
-	max-width: 1000px; // SET 1240 For PDF
+	max-width: 1380px; // SET 1240 For PDF
 }
 
 .resume-header {
 	background: $theme-color-primary;
 	color: rgba(256, 256, 256, 0.9);
-	height: 170px;
+	height: 190px;
 	.picture {
-		width: 170px;
+		width: 190px;
 	}
 		
 	.name {
-		font-size: 2.25rem;
+		font-size: 2.5rem;
 		letter-spacing: 0.175rem;	
 		font-weight: 900;
 	}
 	.title {
-		font-size: 1.5rem;
+		font-size: 1.8rem;
 	}
 	
 	a {
@@ -104,13 +105,13 @@ a.theme-btn-on-bg, .theme-btn-on-bg {
 	
 }
 .resume-social {
-	font-size: 0.875rem;
+	font-size: 1rem;
 
 	.fa-container {
-		font-size: 1rem;
+		font-size: 1.5rem;
 		display:inline-block;
-		width: 24px;
-		height: 24px;
+		width: 35px;
+		height: 35px;
 		@include border-radius(0.125rem);
 		background: white;
 		color: $theme-color-primary;
@@ -119,7 +120,7 @@ a.theme-btn-on-bg, .theme-btn-on-bg {
 }
 
 .resume-section-title {
-	font-size: 1.25rem;
+	font-size: 1.55rem;
 	position: relative;
 	color: $theme-color-primary;
 	
@@ -175,31 +176,31 @@ a.theme-btn-on-bg, .theme-btn-on-bg {
 
 .resume-company-name {
 	color: $theme-text-color-secondary;
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 500;
 }
 
 .resume-position-time {
-	font-size: 0.875rem;
-	color: $theme-text-color-light;
+	font-size: 1rem;
+	color: $theme-text-color-primary;
 }
 
 .resume-position-title {
-	font-size: 1.125rem;
+	font-size: 1.5rem;
 	color: $theme-text-color-primary;
 }
 
 .resume-timeline-item-desc-heading {
-	font-size: 1rem;
+	font-size: 1.4rem;
 }
 
 .resume-skills-cat {
-	font-size: 1rem;
+	font-size: 1.4rem;
 	color: $theme-text-color-primary;
 }
 
 .resume-skill-name {
-	font-size: 0.8125rem;
+	font-size: 1.25rem;
 	color: $theme-text-color-primary;
 }
 
@@ -207,11 +208,11 @@ a.theme-btn-on-bg, .theme-btn-on-bg {
 	color: $theme-text-color-primary;
 }
 .resume-degree-org {
-	font-size: 0.875rem;
+	font-size: 1rem;
 }
 .resume-degree-time {
 	color: $theme-text-color-light;
-	font-size: 0.875rem;
+	font-size: 1rem;
 }
 
 .resume-awards-list {
@@ -230,7 +231,7 @@ a.theme-btn-on-bg, .theme-btn-on-bg {
 }
 
 .resume-award-desc {
-	font-size: 0.875rem;
+	font-size: 1rem;
 }
 
 .resume-lang-name {
@@ -245,16 +246,16 @@ a.theme-btn-on-bg, .theme-btn-on-bg {
 }
 
 .backend-color {
-	background-color: $gradient-color-sky;
+	background-color: darken($gradient-color-sky, 30%);
 }
 .frontend-color {
-	background-color: $gradient-color-grass;
+	background-color: darken($gradient-color-grass, 30%);
 }
 .devops-color {
-	background-color: $gradient-color-rye;
+	background-color: darken($gradient-color-rye, 30%);
 }
 .other-tech-color {
-	background-color: $gradient-color-sea;
+	background-color: darken($gradient-color-sea, 30%);
 }
 .other-tech-badge {
 	background-color: #66b5e326;
