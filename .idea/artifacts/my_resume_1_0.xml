@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="my-resume-1.0">
+    <output-path>$PROJECT_DIR$/build/libs</output-path>
+    <root id="archive" name="my-resume-1.0.jar">
+      <element id="module-output" name="my-resume.main" />
+    </root>
+  </artifact>
+</component>

@@ -1,3 +1,4 @@
+import kotlinx.browser.document
 import kotlin.js.Date
 
 object Resume {
@@ -6,26 +7,28 @@ object Resume {
     const val linkedIn = "https://linkedin.com/in/volodya-gurdin-6a6892152"
     const val email = "vladi.gurdin@gmail.com"
     const val place = "Hilversum, Netherlands"
+    const val avatar = "assets/images/avatar.jpg"
 
     val careerSummary =
-        """Volodya Gurdin is a passionate Backend software engineer with 7+ years of experience. 
-           |Through his experience, he had chance to play many roles in the team, like being a Cloud DevOps Engineer and 
-           |having responsibilities of Scrum Master in teams of 10-16 people. 
-           |However, his main interest was always in Server Side Development and Software Architecture.""".trimMargin()
+        """Volodya Gurdin is a passionate backend software engineer with over 7 years of experience in the industry. 
+           |He is committed to writing clean, maintainable code, and to finding solutions that balance technical excellence with business needs and project constraints. <br>
+           |In addition to his technical expertise, Volodya is also a strong collaborator, he had chance to serve his teams as a Scrum Master and tech lead, 
+           |and he has experience working closely with stakeholders to come up with the best solution. However, his primary focus and interest is in server-side development and software architecture, and he is dedicated to continuous learning and growth in that direction.""".trimMargin()
+
     val finalWords = "Kotlin Advocate. Artist. Human."
 
     // Must be sorted by time for correct rendering
     val workExperiences = listOf(
-        WorkExperience("Sabbatical", listOf(sabbatical2022)),
-        WorkExperience("Csssr", listOf(prof40, arm, mpss)),
-        WorkExperience("Akvelon Inc", listOf(intappExperience, intappOpenCloud)),
-        WorkExperience("Freelance", listOf(freelance)),
+        WorkExperience("Career break", "~1 year", listOf(moodPensieve2022, sabbatical2022)),
+        WorkExperience("Lorem Scriptum", "~3 years", listOf(prof40, arm, mpss)),
+        WorkExperience("Akvelon Inc", "~3.5 years", listOf(intappExperience, intappOpenCloud)),
+        WorkExperience("Freelance", "~1.5 years", listOf(freelance)),
     )
 
     val languages = listOf(
-        LanguageRating("Kotlin (Server Side)", 90),
+        LanguageRating("Kotlin", 90),
         LanguageRating("SQL", 80),
-        LanguageRating("Java", 70),
+        LanguageRating("Java", 65),
         LanguageRating("Java Script (TS)", 60),
         LanguageRating("Scripting (Bash, Python etc)", 50),
     )
@@ -34,29 +37,56 @@ object Resume {
         "TDD", "DDD", "CI/CD", "DevOps",
         "Scrum", "Kanban", "Code Review",
         "Microservices", "Cloud", "Event Driven",
-        "NoSQL", "Distributed Systems", "Metrics",
+        "NoSQL", "Distributed Systems", "Monitoring",
+        "Clean Code", "System Design"
+    )
+
+    val interests = listOf(
+        Interest("fas fa-palette", "Art"),
+        Interest("fas fa-leaf", "Tea"),
+        Interest("fas fa-music", "Music"),
+        Interest("fas fa-book", "Fiction"),
+        Interest("fas fa-seedling", "Nature"),
+        Interest("far fa-heart", "Meditation"),
     )
 }
 
+private val moodPensieve2022 = Project(
+    projectName = "Mood Pensieve",
+    grade = null,
+    description = "Pet project for tracking mood and activities during the day",
+    dateRange = Pair(date(2022, Month.August), null),
+    achievements = listOf(
+        "Built with Kotlin Multiplatform as a progressive web application",
+    ),
+    skills = listOf(
+        JobSkill("Kotlin", SkillType.CODING),
+        JobSkill("Kotlin JS", SkillType.CODING),
+        JobSkill("Ktor", SkillType.TOOL),
+        JobSkill("PostgresSQL", SkillType.TOOL),
+        JobSkill("Firebase", SkillType.DEVOPS),
+    )
+)
+
 private val sabbatical2022 = Project(
-    projectName = null,
+    projectName = "Learning new stuff",
     grade = null,
     description = "Took time off from commercial work to gather energy and level up my skills.",
-    dateRange = Pair(date(2022, Month.March), Date()),
+    dateRange = Pair(date(2022, Month.March), null),
     achievements = listOf(
         "Spent time digging deep into the topic of Distributed Systems (replication, consistency, consensus etc)",
         "Played with various technologies",
     ),
     skills = listOf(
-        JobSkill("Kafka Streams", SkillType.TOOL),
-        JobSkill("Avro", SkillType.TOOL),
+        JobSkill("Ktor", SkillType.TOOL),
         JobSkill("GraphQL", SkillType.TOOL),
-        JobSkill("CRDT", SkillType.TOOL),
+        JobSkill("Kafka", SkillType.TOOL),
         JobSkill("Redis", SkillType.TOOL),
         JobSkill("RabbitMq", SkillType.TOOL),
         JobSkill("Kotlin Coroutines", SkillType.TOOL),
-        JobSkill("Ktor", SkillType.TOOL),
         JobSkill("Kotlin Js", SkillType.TOOL),
+        JobSkill("Avro", SkillType.TOOL),
+        JobSkill("CRDT", SkillType.TOOL),
     )
 )
 
@@ -93,7 +123,7 @@ private val arm = Project(
     description = "Application to manage people work, collect data from mobile applications and draw analytics dashboards",
     dateRange = Pair(date(2020, Month.March), date(2020, Month.December)),
     achievements = listOf(
-        "Completely refactored server side from old legacy stack, allowing project to evolve with reasonable estimations and be maintainable",
+        "Completely refactored server side from the old legacy stack, allowing the project to evolve with reasonable estimations and be maintainable",
         "Implemented logging, monitoring and CI/CD infrastructure that detects anomalies earlier and allows to deploy fixes quickly",
     ),
     skills = listOf(
@@ -118,7 +148,7 @@ private val mpss = Project(
     dateRange = Pair(date(2019, Month.March), date(2020, Month.November)),
     achievements = listOf(
         "Closely worked with a client and analytics to define requirements and business logic",
-        "Implemented server-side logic and and maintained through several iterations of severe requirement changes",
+        "Implemented server-side logic and maintained through several iterations of severe requirement changes",
         "Monitoring, logging, performance testing, CI/CD",
     ),
     skills = listOf(
@@ -173,7 +203,7 @@ private val intappExperience = Project(
 private val intappOpenCloud = Project(
     grade = "Full Stack Engineer",
     projectName = "Intapp: Open Cloud",
-    description = "RnD project to migrate existing on-premise solution (.Net, SQL Server) to the cloud (Java, Aws) and build microservices platform for other company's products as basis for future cloud migration",
+    description = "RnD project to migrate existing on-premise solution (.Net, SQL Server) to the cloud (Java, Aws) and build microservices platform for other company's products as the basis for future cloud migration",
     dateRange = Pair(date(2015, Month.August), date(2016, Month.September, 30)),
     achievements = listOf(
         "Performed various RnD tests for different tools and frameworks according to requirements",
@@ -217,6 +247,7 @@ private val freelance = Project(
 
 data class WorkExperience(
     val companyName: String,
+    val time: String?,
     val projects: List<Project>,
 )
 
@@ -224,7 +255,7 @@ data class Project(
     val grade: String?,
     val projectName: String?,
     val description: String,
-    val dateRange: Pair<Date, Date>,
+    val dateRange: Pair<Date, Date?>,
     val achievements: List<String>,
     val skills: List<JobSkill>,
 )
@@ -240,12 +271,16 @@ data class LanguageRating(
 )
 
 enum class SkillType(val cssClass: String) {
-    CODING("badge-tech"),
-    DEVOPS("badge-tech"),
-    TOOL("badge-tech")
+    CODING("badge-coding"),
+    DEVOPS("badge-devops"),
+    TOOL("badge-tool")
 }
 
 enum class Month {
     January, February, March, April, May, June, July, August, September, October, November, December
 }
 
+data class Interest(
+    val faIcon: String,
+    val name: String,
+)

@@ -1,4 +1,3 @@
-import Resume.careerSummary
 import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.html.*
@@ -6,7 +5,6 @@ import kotlinx.html.dom.append
 import org.w3c.dom.HTMLElement
 import org.w3c.dom.Node
 import kotlin.js.Date
-import kotlin.math.roundToInt
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.milliseconds
 
@@ -49,11 +47,8 @@ private fun HtmlBlockTag.workExperiences() {
                     article("resume-timeline-company position-relative pb-5") {
                         h3("resume-timeline-item-header mb-2") {
                             +experience.companyName
-                            if (experience.projects.size > 1) {
-                                val from = experience.projects.last().dateRange.first
-                                val to = experience.projects.first().dateRange.second
-                                val duration = duration(from, to)
-                                span("title-time") { +" (${duration.toShortString()})" }
+                            if (experience.time != null) {
+                                span("title-time") { +" (${experience.time})" }
                             }
                         }
 
@@ -86,10 +81,12 @@ private fun HtmlBlockTag.project(project: Project) {
             }
 
             div("resume-position-time") {
-                val duration = duration(project.dateRange.first, project.dateRange.second)
 
-                +"${project.dateRange.first.toResumeString()} – ${project.dateRange.second.toResumeString()}"
-                small { +" (${duration.toResumeString()})" }
+                +"${project.dateRange.first.toResumeString()} – ${project.dateRange.second?.toResumeString() ?: "Present"}"
+                if (project.dateRange.second != null) {
+                    val duration = duration(project.dateRange.first, project.dateRange.second!!)
+                    small { +" (${duration.toResumeString()})" }
+                }
             }
         }
 
@@ -116,34 +113,11 @@ private fun DIV.interestsSection() {
         h2("resume-section-title text-uppercase font-weight-bold pb-3 mb-3") { +"""Interests""" }
         div("resume-section-content") {
             ul("list-unstyled") {
-                li("mb-1") {
-                    i("fas fa-palette")
-                    +"""Art"""
-                }
-                li("mb-1") {
-                    i("fas fa-leaf")
-                    +"""Tea"""
-                }
-                li("mb-1") {
-                    i("fas fa-book")
-                    +"""Fiction"""
-                }
-                li("mb-1") {
-                    i("fas fa-seedling")
-                    +"""Nature"""
-                }
-                li("mb-1") {
-                    i("far fa-heart")
-                    +"""Meditation"""
-                }
-                li("mb-1") {
-                    i("fas fa-music")
-                    +"""Creating Music"""
-                }
-                li("mb-1") {
-                    i("fas fa-film") {
+                Resume.interests.forEach {
+                    li("mb-1") {
+                        i(it.faIcon)
+                        +" ${it.name}"
                     }
-                    +"""Film Photography"""
                 }
             }
         }
@@ -191,7 +165,12 @@ private fun HtmlBlockTag.careerSummary() {
     section("resume-section summary-section mb-5") {
         h2("resume-section-title text-uppercase font-weight-bold pb-3 mb-3") { +"""Career Summary""" }
         div("resume-section-content") {
-            p { +Resume.careerSummary }
+            p {
+                Resume.careerSummary.split("<br>").forEach {
+                    +it
+                    br()
+                }
+            }
             p("mb-0") { +Resume.finalWords }
         }
     }
@@ -201,7 +180,7 @@ private fun TagConsumer<HTMLElement>.personalInfo() {
     header("resume-header pt-4 pt-md-0") {
         div("media flex-column flex-md-row") {
             img(classes = "mr-3 img-fluid picture mx-auto") {
-                src = "assets/images/profile.jpg"
+                src = Resume.avatar
                 alt = ""
             }
             div("media-body p-4 d-flex flex-column flex-md-row mx-auto mx-lg-0") {
@@ -209,13 +188,6 @@ private fun TagConsumer<HTMLElement>.personalInfo() {
                     h1("name mt-0 mb-1 text-white text-uppercase text-uppercase") { +Resume.name }
                     div("title mb-3") {
                         +Resume.title
-                        span("linked-in-button") {
-                            a {
-                                href = Resume.linkedIn
-                                target = "_blank"
-                                span("fa-container mr-2") { i("fab fa-linkedin fa-fw") }
-                            }
-                        }
                     }
 
                     ul("list-unstyled") {
@@ -223,6 +195,12 @@ private fun TagConsumer<HTMLElement>.personalInfo() {
                             span {
                                 i("fas fa-home fa-fw mr-2") { attributes["data-fa-transform"] = "grow-3" }
                                 +Resume.place
+                            }
+                        }
+                        li("mb-2") {
+                            a(href = Resume.linkedIn, target = "_blank") {
+                                i("fab fa-linkedin fa-fw mr-2") { attributes["data-fa-transform"] = "grow-3" }
+                                +"LinkedIn profile"
                             }
                         }
                         li("mb-2") {
@@ -263,12 +241,6 @@ fun Duration.toResumeString(): String {
     val years = this.inWholeDays / 365
     val months = (this.inWholeDays - (years * 365)) / 30 + 1
     return "$years years $months months"
-}
-
-fun Duration.toShortString(): String {
-    val years = this.inWholeDays / 365.0
-    val rounded = (years * 100).roundToInt() / 100.0
-    return "~$rounded years"
 }
 
 fun Date.toResumeString(): String {
